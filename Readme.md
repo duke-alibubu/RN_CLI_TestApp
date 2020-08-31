@@ -3,3 +3,6 @@
 
 # PDF handling
 - `https://www.npmjs.com/package/react-native-pdf`
+
+# File Viewer && Doc Picker
+- `https://www.npmjs.com/package/react-native-file-viewer`
