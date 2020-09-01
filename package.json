@@ -25,9 +25,11 @@
     "react-native-file-viewer": "^2.1.1",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.7.0",
+    "react-native-media-controls": "^2.1.0",
     "react-native-pdf": "^6.2.0",
     "react-native-safe-area-context": "^3.1.7",
     "react-native-screens": "^2.10.1",
+    "react-native-slider": "^0.11.0",
     "react-native-video": "^5.1.0-alpha8",
     "rn-fetch-blob": "^0.12.0"
   },
