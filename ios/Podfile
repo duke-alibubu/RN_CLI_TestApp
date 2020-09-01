@@ -12,6 +12,8 @@ target 'GesturePlayground' do
 
   pod 'RNFileViewer', :path => '../node_modules/react-native-file-viewer'
 
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
   target 'GesturePlaygroundTests' do
     inherit! :complete
     # Pods for testing
