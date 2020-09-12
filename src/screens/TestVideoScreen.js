@@ -7,6 +7,7 @@ import Video from 'react-native-video';
 //Import React Native Video to play video
 import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
 import VideoProgressBar from '../components/VideoProgressBar';
+import VideoPlayerControl from '../components/VideoPlayerControl';
 //Media Controls to control Play/Pause/Seek and full screen
 
 class TestVideoScreen extends Component {
@@ -70,12 +71,14 @@ class TestVideoScreen extends Component {
             this.setState({ screenType: 'cover' });
         else this.setState({ screenType: 'content' });
     };
-    renderToolbar = () => (
-        <View>
-            <Text> toolbar </Text>
-        </View>
-    );
+
     onSeeking = currentTime => this.setState({ currentTime });
+
+    setStatePlayOrPause = () => {
+        //this.setState({ paused: !isPlaying })
+        this.setState({ paused: !this.state.paused })
+        console.log("TOUCHED")
+    }
 
     render() {
         return (
@@ -101,9 +104,14 @@ class TestVideoScreen extends Component {
                         style={styles.mediaControls}
                         currentTime={this.state.currentTime}
                         duration={this.state.duration > 0 ? this.state.duration : 0}
-                        onSlideStart={console.log("started sliding")}
-                        onSlideComplete={console.log("completed sliding")}
+                        onSlideStart={console.log("")}
+                        onSlideComplete={console.log("")}
                         onSlideCapture={this.onSeek}
+                    />
+                    <VideoPlayerControl
+                        isPlaying={!this.state.paused}
+                        onPlay={this.setStatePlayOrPause}
+                        onPause={this.setStatePlayOrPause}
                     />
                     {/* <MediaControls
                     style={styles.mediaControls}
