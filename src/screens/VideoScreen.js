@@ -23,7 +23,7 @@ export default class VideoScreen extends Component {
             resizeMode: 'contain',
             duration: 0.0,
             currentTime: 0.0,
-            paused: true,
+            paused: false,
             pickerValueHolder: '1.0',
             pausedText: 'Play',
             hideControls: false,
@@ -111,29 +111,29 @@ export default class VideoScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <TouchableWithoutFeedback
+                {/* <TouchableWithoutFeedback
                     style={styles.fullScreen}
-                    onPress={() => this.onPressVideo()}>
-                    <Video
-                        ref={(ref) => { this.video = ref }}
-                        /* For ExoPlayer */
-                        source={{ uri: 'https://rawgit.com/uit2712/Mp3Container/master/tom_and_jerry_31.mp4' }}
-                        // source={require('./videos/tom_and_jerry_31.mp4')}
-                        style={styles.fullScreen}
-                        rate={this.state.rate}
-                        paused={this.state.paused}
-                        volume={this.state.volume}
-                        muted={this.state.muted}
-                        resizeMode={this.state.resizeMode}
-                        onLoad={this.onLoad}
-                        onProgress={this.onProgress}
-                        onEnd={this.onEnd}
-                        onAudioBecomingNoisy={this.onAudioBecomingNoisy}
-                        onAudioFocusChanged={this.onAudioFocusChanged}
-                        repeat={false}
-                    />
-                </TouchableWithoutFeedback>
-                {
+                    onPress={() => this.onPressVideo()}> */}
+                <Video
+                    ref={(ref) => { this.video = ref }}
+                    /* For ExoPlayer */
+                    source={{ uri: 'https://rawgit.com/uit2712/Mp3Container/master/tom_and_jerry_31.mp4' }}
+                    // source={require('./videos/tom_and_jerry_31.mp4')}
+                    style={styles.fullScreen}
+                    rate={this.state.rate}
+                    paused={this.state.paused}
+                    volume={this.state.volume}
+                    muted={this.state.muted}
+                    resizeMode={this.state.resizeMode}
+                    onLoad={this.onLoad}
+                    onProgress={this.onProgress}
+                    onEnd={this.onEnd}
+                    onAudioBecomingNoisy={this.onAudioBecomingNoisy}
+                    onAudioFocusChanged={this.onAudioFocusChanged}
+                    repeat={false}
+                />
+                {/* </TouchableWithoutFeedback> */}
+                {/* {
                     !this.state.hideControls ?
                         (
                             <View style={styles.controls}>
@@ -177,7 +177,7 @@ export default class VideoScreen extends Component {
                                 </View>
                             </View>
                         ) : (null)
-                }
+                } */}
 
 
             </View>
