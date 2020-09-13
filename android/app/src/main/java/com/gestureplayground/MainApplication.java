@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
+import com.brentvatne.react.ReactVideoPackage;
 import com.vinzscam.reactnativefileviewer.RNFileViewerPackage;
 import com.reactlibrary.RNReactNativeDocViewerPackage;
 import com.facebook.react.ReactInstanceManager;
