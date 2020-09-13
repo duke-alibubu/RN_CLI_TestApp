@@ -98,34 +98,23 @@ class TestVideoScreen extends Component {
                         style={styles.mediaPlayer}
                         volume={10}
                         fullscreen={false}
-                        resizeMode={'stretch'}
+                        resizeMode={'contain'}
                     />
-                    <VideoProgressBar
-                        style={styles.mediaControls}
-                        currentTime={this.state.currentTime}
-                        duration={this.state.duration > 0 ? this.state.duration : 0}
-                        onSlideStart={console.log("")}
-                        onSlideComplete={console.log("")}
-                        onSlideCapture={this.onSeek}
-                    />
-                    <VideoPlayerControl
-                        isPlaying={!this.state.paused}
-                        onPlay={this.setStatePlayOrPause}
-                        onPause={this.setStatePlayOrPause}
-                    />
-                    {/* <MediaControls
-                    style={styles.mediaControls}
-                    duration={this.state.duration}
-                    isLoading={this.state.isLoading}
-                    mainColor="#333"
-                    onFullScreen={this.onFullScreen}
-                    onPaused={this.onPaused}
-                    onReplay={this.onReplay}
-                    onSeek={this.onSeek}
-                    onSeeking={this.onSeeking}
-                    playerState={this.state.playerState}
-                    progress={this.state.currentTime}
-                /> */}
+                    <View style={styles.controlOverlay}>
+                        <VideoPlayerControl
+                            isPlaying={!this.state.paused}
+                            onPlay={this.setStatePlayOrPause}
+                            onPause={this.setStatePlayOrPause}
+                        />
+                        <VideoProgressBar
+                            style={styles.mediaControls}
+                            currentTime={this.state.currentTime}
+                            duration={this.state.duration > 0 ? this.state.duration : 0}
+                            onSlideStart={console.log("")}
+                            onSlideComplete={console.log("")}
+                            onSlideCapture={this.onSeek}
+                        />
+                    </View>
                 </View>
             </TouchableWithoutFeedback>
         );
@@ -134,17 +123,18 @@ class TestVideoScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column'
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        backgroundColor: '#ebebeb'
     },
     mediaPlayer: {
+        height: Dimensions.get('window').width * (9 / 16),
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height / 2,
         backgroundColor: 'black',
     },
-    mediaControls: {
-        backgroundColor: 'black'
-    }
+    controlOverlay: {
+        position: 'absolute',
+        height: Dimensions.get('window').width * (9 / 16),
+        width: Dimensions.get('window').width,
+        justifyContent: 'space-between',
+    },
 });
 export default TestVideoScreen;
