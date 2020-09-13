@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
-// import { VideoPause, VideoPlay } from '../../assets/video_icons';
+import { VideoPause, VideoPlay } from '../../assets/video_icons';
 
 const VideoPlayerControl = ({ isPlaying, onPlay, onPause }) => {
     return (
@@ -8,8 +8,8 @@ const VideoPlayerControl = ({ isPlaying, onPlay, onPause }) => {
             <TouchableOpacity
                 style={styles.touchable}
                 onPress={isPlaying ? onPause : onPlay}>
-                <Text>{isPlaying ? "Pause" : "Play"}</Text>
-                {/* {isPlaying ? <VideoPause /> : <VideoPlay />} */}
+                {/* <Text>{isPlaying ? "Pause" : "Play"}</Text> */}
+                {isPlaying ? <VideoPause /> : <VideoPlay />}
             </TouchableOpacity>
         </View>
     );
