@@ -1,14 +1,9 @@
-/*Example of React Native Video*/
 import React, { Component } from 'react';
-//Import React
-import { Platform, StyleSheet, Text, View, Dimensions, TouchableWithoutFeedback } from 'react-native';
-//Import Basic React Native Component
+import { StyleSheet, View, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import Video from 'react-native-video';
-//Import React Native Video to play video
-import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
+import { PLAYER_STATES } from 'react-native-media-controls';
 import VideoProgressBar from '../components/VideoProgressBar';
 import VideoPlayerControl from '../components/VideoPlayerControl';
-//Media Controls to control Play/Pause/Seek and full screen
 
 class TestVideoScreen extends Component {
     videoPlayerRef;
@@ -30,13 +25,20 @@ class TestVideoScreen extends Component {
         this.videoPlayer.seek(seek);
     };
 
-    onPaused = playerState => {
+    pauseVideo = () => {
         //Handler for Video Pause
         this.setState({
-            paused: !this.state.paused,
-            playerState,
+            paused: true,
+            playerState: PLAYER_STATES.PAUSED,
         });
     };
+
+    resumeVideo = () => {
+        this.setState({
+            paused: false,
+            playerState: PLAYER_STATES.PLAYING,
+        });
+    }
 
     onReplay = () => {
         //Handler for Replay
@@ -74,12 +76,6 @@ class TestVideoScreen extends Component {
 
     onSeeking = currentTime => this.setState({ currentTime });
 
-    setStatePlayOrPause = () => {
-        //this.setState({ paused: !isPlaying })
-        this.setState({ paused: !this.state.paused })
-        console.log("TOUCHED")
-    }
-
     render() {
         return (
             <TouchableWithoutFeedback>
@@ -102,9 +98,9 @@ class TestVideoScreen extends Component {
                     />
                     <View style={styles.controlOverlay}>
                         <VideoPlayerControl
-                            isPlaying={!this.state.paused}
-                            onPlay={this.setStatePlayOrPause}
-                            onPause={this.setStatePlayOrPause}
+                            playerState={this.state.playerState}
+                            onPlay={this.resumeVideo}
+                            onPause={this.pauseVideo}
                         />
                         <VideoProgressBar
                             style={styles.mediaControls}

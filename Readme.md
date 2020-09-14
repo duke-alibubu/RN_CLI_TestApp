@@ -24,4 +24,6 @@
 
 # Next task
 - Conditionally display the control logic.
+    + Redesign Replay icon && rework the logic again !!!
 - Upon completion, the progress bar logic is not working good.
+- Wrap seperately into a component.
