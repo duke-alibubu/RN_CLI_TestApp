@@ -3,7 +3,7 @@ import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { VideoPause, VideoPlay, VideoReplay } from '../../assets/video_icons';
 import { PLAYER_STATES } from 'react-native-media-controls';
 
-const VideoPlayerControl = ({ playerState, onPlay, onPause }) => {
+const VideoPlayerControl = ({ playerState, onPlay, onPause, onReplay }) => {
     const selectIcon = () => {
         switch (playerState) {
             case PLAYER_STATES.PAUSED:
@@ -16,11 +16,28 @@ const VideoPlayerControl = ({ playerState, onPlay, onPause }) => {
                 return <Text> STATE ERROR! </Text>
         }
     }
+
+    const onPress = () => {
+        switch (playerState) {
+            case PLAYER_STATES.PAUSED:
+                onPlay();
+                break;
+            case PLAYER_STATES.PLAYING:
+                onPause();
+                break;
+            case PLAYER_STATES.ENDED:
+                onReplay();
+                break;
+            default:
+                break;
+
+        }
+    }
     return (
         <View style={styles.wrapper}>
             <TouchableOpacity
                 style={styles.touchable}
-                onPress={playerState === PLAYER_STATES.PLAYING ? onPause : onPlay}>
+                onPress={onPress}>
                 {/* <Text>{isPlaying ? "Pause" : "Play"}</Text> */}
                 {selectIcon()}
             </TouchableOpacity>

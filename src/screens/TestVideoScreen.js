@@ -6,7 +6,6 @@ import VideoProgressBar from '../components/VideoProgressBar';
 import VideoPlayerControl from '../components/VideoPlayerControl';
 
 class TestVideoScreen extends Component {
-    videoPlayerRef;
     constructor(props) {
         super(props);
         this.state = {
@@ -20,7 +19,7 @@ class TestVideoScreen extends Component {
         };
     }
 
-    onSeek = seek => {
+    doSeek = seek => {
         //Handler for change in seekbar
         this.videoPlayer.seek(seek);
     };
@@ -40,10 +39,14 @@ class TestVideoScreen extends Component {
         });
     }
 
-    onReplay = () => {
+    onReplay = async () => {
         //Handler for Replay
-        this.setState({ playerState: PLAYER_STATES.PLAYING });
-        this.videoPlayerRef.seek(0);
+        await this.videoPlayer.seek(0);
+        this.setState({
+            currentTime: 0,
+        });
+        this.pauseVideo();
+        this.resumeVideo();
     };
 
     onProgress = data => {
@@ -62,26 +65,14 @@ class TestVideoScreen extends Component {
 
     onError = () => alert('Oh! ', error);
 
-    exitFullScreen = () => {
-        alert('Exit full screen');
-    };
-
-    enterFullScreen = () => { };
-
-    onFullScreen = () => {
-        if (this.state.screenType == 'content')
-            this.setState({ screenType: 'cover' });
-        else this.setState({ screenType: 'content' });
-    };
-
-    onSeeking = currentTime => this.setState({ currentTime });
+    // onSeeking = currentTime => this.setState({ currentTime });
 
     render() {
         return (
             <TouchableWithoutFeedback>
                 <View style={styles.container}>
                     <Video
-                        // ref={this.videoPlayerRef}
+                        // repeat={true}
                         onEnd={this.onEnd}
                         onLoad={this.onLoad}
                         onLoadStart={this.onLoadStart}
@@ -101,6 +92,7 @@ class TestVideoScreen extends Component {
                             playerState={this.state.playerState}
                             onPlay={this.resumeVideo}
                             onPause={this.pauseVideo}
+                            onReplay={this.onReplay}
                         />
                         <VideoProgressBar
                             style={styles.mediaControls}
@@ -108,7 +100,7 @@ class TestVideoScreen extends Component {
                             duration={this.state.duration > 0 ? this.state.duration : 0}
                             onSlideStart={console.log("")}
                             onSlideComplete={console.log("")}
-                            onSlideCapture={this.onSeek}
+                            onSlideCapture={this.doSeek}
                         />
                     </View>
                 </View>
