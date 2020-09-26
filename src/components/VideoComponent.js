@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { StyleSheet, View, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import Video from 'react-native-video';
 import { PLAYER_STATES } from 'react-native-media-controls';
 import VideoPlayerControl from './VideoPlayerControl';
 import VideoProgressBar from './VideoProgressBar';
 
-var videoPlayer;
 const VideoComponent = ({ videoHeight, videoWidth }) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -14,10 +13,11 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
     const [paused, setPaused] = useState(false);
     const [playerState, setPlayerState] = useState(PLAYER_STATES.PLAYING);
     const [screenType, setScreenType] = useState('content');
+    const videoPlayerRef = useRef(React.createRef());
 
     const doSeek = seek => {
         //Handler for change in seekbar
-        videoPlayer.seek(seek);
+        videoPlayerRef.current.seek(seek);
     };
 
     const pauseVideo = () => {
@@ -32,10 +32,10 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
 
     const onReplay = async () => {
         //Handler for Replay
-        await videoPlayer.seek(0);
+        await videoPlayerRef.current.seek(0);
         setCurrentTime(0);
-        this.pauseVideo();
-        this.resumeVideo();
+        pauseVideo();
+        resumeVideo();
     };
 
     const onProgress = data => {
@@ -86,7 +86,7 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
                     onLoadStart={onLoadStart}
                     onProgress={onProgress}
                     paused={paused}
-                    ref={videoPlayer => (videoPlayer = videoPlayer)}
+                    ref={videoPlayer => (videoPlayerRef.current = videoPlayer)}
                     resizeMode={screenType}
                     onFullScreen={isFullScr}
                     source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
