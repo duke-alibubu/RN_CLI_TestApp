@@ -5,15 +5,13 @@ import { PLAYER_STATES } from 'react-native-media-controls';
 import VideoPlayerControl from './VideoPlayerControl';
 import VideoProgressBar from './VideoProgressBar';
 
-const VideoComponent = ({ videoHeight, videoWidth }) => {
+const VideoComponent = ({ uri, videoHeight, videoWidth }) => {
     const SHOW_CONTROL_TIMEOUT = 2500;
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [isFullScr, setIsFullScr] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [paused, setPaused] = useState(false);
     const [playerState, setPlayerState] = useState(PLAYER_STATES.PLAYING);
-    const [screenType, setScreenType] = useState('content');
     const [showControls, setShowControls] = useState(true);
 
     const videoPlayerRef = useRef(React.createRef());
@@ -70,8 +68,6 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
         setShowControls(true);
     }
 
-    const onError = () => alert('Oh! ', error);
-
     const toggleShowControls = () => {
         if (showControls) {
             setShowControls(false);
@@ -115,9 +111,7 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
                     onProgress={onProgress}
                     paused={paused}
                     ref={videoPlayer => (videoPlayerRef.current = videoPlayer)}
-                    resizeMode={screenType}
-                    onFullScreen={isFullScr}
-                    source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+                    source={{ uri }}
                     style={styles.mediaPlayer}
                     volume={10}
                     fullscreen={false}

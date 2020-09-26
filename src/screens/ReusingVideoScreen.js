@@ -5,8 +5,14 @@ import { StyleSheet, View, Dimensions } from 'react-native';
 const ReusingVideoScreen = () => {
     return (
         <View style={styles.container}>
-            <VideoComponent videoHeight={Dimensions.get('window').width * (9 / 16)} videoWidth={Dimensions.get('window').width} />
-            {/* <VideoComponent videoHeight={Dimensions.get('window').width * (9 / 16)} videoWidth={Dimensions.get('window').width} /> */}
+            <VideoComponent
+                uri='http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+                videoHeight={Dimensions.get('window').width * (9 / 16)}
+                videoWidth={Dimensions.get('window').width} />
+            <VideoComponent
+                uri='https://rawgit.com/uit2712/Mp3Container/master/tom_and_jerry_31.mp4'
+                videoHeight={Dimensions.get('window').width * (9 / 16)}
+                videoWidth={Dimensions.get('window').width * 4 / 5} />
         </View>
     );
 }
