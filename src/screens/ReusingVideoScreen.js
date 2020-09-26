@@ -13,6 +13,10 @@ const ReusingVideoScreen = () => {
                 uri='https://rawgit.com/uit2712/Mp3Container/master/tom_and_jerry_31.mp4'
                 videoHeight={Dimensions.get('window').width * (9 / 16)}
                 videoWidth={Dimensions.get('window').width * 4 / 5} />
+            <VideoComponent
+                uri='http://techslides.com/demos/sample-videos/small.mp4'
+                videoHeight={Dimensions.get('window').width * (5 / 16)}
+                videoWidth={Dimensions.get('window').width * (1 / 2)} />
         </View>
     );
 }
