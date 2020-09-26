@@ -52,7 +52,10 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
 
     const onLoadStart = data => setIsLoading(true);
 
-    const onEnd = () => setPlayerState(PLAYER_STATES.ENDED);
+    const onEnd = () => {
+        setPlayerState(PLAYER_STATES.ENDED);
+        setPaused(true);
+    }
 
     const onError = () => alert('Oh! ', error);
 
