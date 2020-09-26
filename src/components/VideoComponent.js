@@ -13,6 +13,8 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
     const [paused, setPaused] = useState(false);
     const [playerState, setPlayerState] = useState(PLAYER_STATES.PLAYING);
     const [screenType, setScreenType] = useState('content');
+    const [showControls, setShowControls] = useState(true);
+
     const videoPlayerRef = useRef(React.createRef());
 
     const doSeek = seek => {
@@ -59,6 +61,10 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
 
     const onError = () => alert('Oh! ', error);
 
+    const toggleShowControls = () => {
+        setShowControls(!showControls);
+    }
+
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -80,7 +86,7 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
     });
 
     return (
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={toggleShowControls}>
             <View style={styles.container}>
                 <Video
                     // repeat={true}
@@ -98,7 +104,7 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
                     fullscreen={false}
                     resizeMode={'contain'}
                 />
-                <View style={styles.controlOverlay}>
+                {showControls && <View style={styles.controlOverlay}>
                     <VideoPlayerControl
                         playerState={playerState}
                         onPlay={resumeVideo}
@@ -113,7 +119,7 @@ const VideoComponent = ({ videoHeight, videoWidth }) => {
                         onSlideComplete={console.log("")}
                         onSlideCapture={doSeek}
                     />
-                </View>
+                </View>}
             </View>
         </TouchableWithoutFeedback>
     );
