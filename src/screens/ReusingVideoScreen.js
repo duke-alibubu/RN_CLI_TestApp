@@ -9,14 +9,14 @@ const ReusingVideoScreen = () => {
                 uri='http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
                 videoHeight={Dimensions.get('window').width * (9 / 16)}
                 videoWidth={Dimensions.get('window').width} />
-            <VideoComponent
+            {/* <VideoComponent
                 uri='https://rawgit.com/uit2712/Mp3Container/master/tom_and_jerry_31.mp4'
                 videoHeight={Dimensions.get('window').width * (9 / 16)}
-                videoWidth={Dimensions.get('window').width * 4 / 5} />
+                videoWidth={Dimensions.get('window').width} />
             <VideoComponent
                 uri='http://techslides.com/demos/sample-videos/small.mp4'
-                videoHeight={Dimensions.get('window').width * (5 / 16)}
-                videoWidth={Dimensions.get('window').width * (1 / 2)} />
+                videoHeight={Dimensions.get('window').width * (9 / 16)}
+                videoWidth={Dimensions.get('window').width} /> */}
         </View>
     );
 }

@@ -6,8 +6,7 @@
     <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
         <g fill="#000000" id="Icons-AV" transform="translate(-2.000000, -127.000000)">
             <g id="replay" transform="translate(2.000000, 127.000000)">
-                <path style="fill:none; stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:#FFFFFF;stroke-opacity:1;stroke-miterlimit:4;" d="M 34.92 18 C 34.92 27.343125 27.343125 34.92 18 34.92 C 8.656875 34.92 1.08 27.343125 1.08 18 C 1.08 8.656875 8.656875 1.08 18 1.08 C 27.343125 1.08 34.92 8.656875 34.92 18 Z M 34.92 18 " transform="matrix(0.694444,0,0,0.694444,0,0)" />
-                <path style="fill-rule:evenodd;fill:#FFFFFF;fill-opacity:1;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke:#FFFFFF;stroke-opacity:1;stroke-miterlimit:4;" d="M8,4 L8,0 L3,5 L8,10 L8,6 C11.3,6 14,8.7 14,12 C14,15.3 11.3,18 8,18 C4.7,18 2,15.3 2,12 L0,12 C0,16.4 3.6,20 8,20 C12.4,20 16,16.4 16,12 C16,7.6 12.4,4 8,4 L8,4 Z" id="Shape" />
+                <path style="fill-rule:evenodd;fill:#FFFFFF;fill-opacity:1;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke:#FFFFFF;stroke-opacity:1;stroke-miterlimit:4;" d="M12,6 L12,2 L7,7 L12,12 L12,8 C15.3,8 18,10.7 18,14 C18,17.3 15.3,20 12,20 C8.7,20 6,17.3 6,14 L4,14 C4,18.4 7.6,22 12,22 C16.4,22 20,18.4 20,14 C20,9.6 16.4,6 12,6 L12,6 Z" id="Shape" />
             </g>
         </g>
     </g>
