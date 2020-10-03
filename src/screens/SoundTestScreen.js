@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Sound from 'react-native-sound';
+import { SoundPause, SoundPlay } from '../../assets/sound_icons';
 
 const SoundTestScreen = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -18,7 +19,7 @@ const SoundTestScreen = () => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={playSound}>
-                <Text> {isPlaying ? "Pause" : "Play"} </Text>
+                {isPlaying ? <SoundPause /> : <SoundPlay />}
             </TouchableOpacity>
         </View>
     );
@@ -26,7 +27,10 @@ const SoundTestScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
