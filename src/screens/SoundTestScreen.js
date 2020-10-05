@@ -37,6 +37,7 @@ const SoundTestScreen = () => {
             <TouchableOpacity onPress={playOrPauseSound}>
                 {isPlaying ? <SoundPause /> : <SoundPlay />}
             </TouchableOpacity>
+            <Text style={styles.textStyle} > Sample Text </Text>
         </View>
     );
 }
@@ -44,9 +45,12 @@ const SoundTestScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    textStyle: {
+        fontSize: 15
     }
 });
 
