@@ -9,13 +9,14 @@ import VideoPlayerScreen from './src/screens/VideoPlayerScreen';
 import TestVideoScreen from './src/screens/TestVideoScreen';
 import ReusingVideoScreen from './src/screens/ReusingVideoScreen';
 import SoundTestScreen from './src/screens/SoundTestScreen';
+import SinglePageScreen from './src/screens/SinglePageScreen';
 
 const Stack = createStackNavigator();
 
 function Navigator() {
   return (
     <Stack.Navigator
-      initialRouteName="SoundTest"
+      initialRouteName="SinglePage"
       screenOptions={{ title: 'Testing Gesture Handlers' }}>
       <Stack.Screen name="PDF" component={PdfScreen} />
       <Stack.Screen name="FileViewer" component={FileViewerScreen} />
@@ -24,6 +25,7 @@ function Navigator() {
       <Stack.Screen name="TestVideo" component={TestVideoScreen} />
       <Stack.Screen name="ReuseVideoScreen" component={ReusingVideoScreen} />
       <Stack.Screen name="SoundTest" component={SoundTestScreen} />
+      <Stack.Screen name="SinglePage" component={SinglePageScreen} />
     </Stack.Navigator>
   );
 }
