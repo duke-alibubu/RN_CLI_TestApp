@@ -35,6 +35,7 @@
     + Fullscreen mode for video are yet to be implemented. It needs to be considered more carefully since it is connected to navigation, not just simply enlarging the component.
 
 # Next task
-- Conditionally display the control logic.
-    + Redesign Replay icon && rework the logic again !!!
-- Wrap seperately into a component.
+- The SVG icon should be able to re-size dynamically.
+- Try Sound Component with control? if necessary?
+- Why does Video fail while installed?
+- Explore other kind of navigators!!
