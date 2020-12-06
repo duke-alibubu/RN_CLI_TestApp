@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from 'react-native';
 const Page4 = () => {
     return (
         <View style={styles.container}>
-            <Text>Page 4</Text>
+            <Text>Page 4: end game</Text>
         </View>
 
     );

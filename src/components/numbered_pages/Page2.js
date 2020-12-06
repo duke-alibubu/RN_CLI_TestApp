@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from 'react-native';
 const Page2 = () => {
     return (
         <View style={styles.container}>
-            <Text>Page 2</Text>
+            <Text>Page 2: Let's study math...</Text>
         </View>
 
     );
