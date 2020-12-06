@@ -2,6 +2,9 @@
 ## Blah Blah Stuff
 - Look for the first commit *FIRST COMMIT - HOT FIX* to see how to fix the first-time installation problem. Don't ask me why there's a need to do it - because Facebook product is damn buggy. That zz all.
 
+## Some dependencies
+- `react-native-swipe-gestures`: handling swipes
+
 ## PDF handling
 - `https://www.npmjs.com/package/react-native-pdf`
 
@@ -39,3 +42,4 @@
 - Try Sound Component with control? if necessary?
 - Why does Video fail while installed?
 - Explore other kind of navigators!
+- On swipe left/right, display new page !!
