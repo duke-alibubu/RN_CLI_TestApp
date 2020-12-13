@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Page1 from '../components/numbered_pages/Page1';
 import Page2 from '../components/numbered_pages/Page2';
 import Page3 from '../components/numbered_pages/Page3';
@@ -7,6 +7,7 @@ import Page4 from '../components/numbered_pages/Page4';
 import { Directions, FlingGestureHandler, State } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import ToolbarAndroid from '@react-native-community/toolbar-android';
+import Slider from '@react-native-community/slider';
 
 const SinglePageScreen = () => {
     const navigation = useNavigation();
@@ -55,6 +56,18 @@ const SinglePageScreen = () => {
                         style={styles.toolbar}
                     />
                     {renderPage()}
+                    <Slider
+                        style={styles.slider}
+                        value={pageNo}
+                        minimumValue={1}
+                        maximumValue={MAX_PAGE_NO}
+                        step={1}
+                        onValueChange={(num) => setPageNo(num)}
+                        minimumTrackTintColor={'#4336f4'}
+                        maximumTrackTintColor={'#FFFFFF'}
+                        thumbTintColor={'#4336f4'}
+                    />
+                    <Text style={styles.pageCounter}>Page {pageNo} of {MAX_PAGE_NO}</Text>
                 </View>
             </FlingGestureHandler>
         </FlingGestureHandler >
@@ -63,11 +76,18 @@ const SinglePageScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     toolbar: {
         height: 50,
         backgroundColor: '#d3d3d3',
+    },
+    slider: {
+        marginVertical: 10,
+        marginHorizontal: 30
+    },
+    pageCounter: {
+        textAlign: 'center'
     }
 });
 
