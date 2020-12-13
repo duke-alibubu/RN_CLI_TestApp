@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import Page1 from '../components/numbered_pages/Page1';
 import Page2 from '../components/numbered_pages/Page2';
 import Page3 from '../components/numbered_pages/Page3';
@@ -83,11 +83,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#d3d3d3',
     },
     slider: {
-        marginVertical: 10,
-        marginHorizontal: 30
+        width: Dimensions.get('window').width / 2,
+        alignSelf: 'center'
     },
     pageCounter: {
-        textAlign: 'center'
+        alignSelf: 'center'
     }
 });
 
