@@ -18,6 +18,8 @@ target 'GesturePlayground' do
 
   pod 'RNSound', :path => '../node_modules/react-native-sound'
 
+  pod 'toolbar-android', :path => '../node_modules/@react-native-community/toolbar-android'
+
   target 'GesturePlaygroundTests' do
     inherit! :complete
     # Pods for testing

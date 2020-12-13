@@ -8,6 +8,9 @@
 ## File Viewer && Doc Picker
 - `https://www.npmjs.com/package/react-native-file-viewer`
 
+## Toolbar Android
+- `https://www.npmjs.com/package/@react-native-community/toolbar-android`
+
 ## Video Player
 - `https://www.npmjs.com/package/react-native-video`
 - After this, building on Android might fail with multidex error. Check this link for answers `https://stackoverflow.com/questions/49886597/multidex-issue-with-flutter#answer-54680454`
