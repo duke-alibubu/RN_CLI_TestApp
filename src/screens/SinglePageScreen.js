@@ -5,8 +5,11 @@ import Page2 from '../components/numbered_pages/Page2';
 import Page3 from '../components/numbered_pages/Page3';
 import Page4 from '../components/numbered_pages/Page4';
 import { Directions, FlingGestureHandler, State } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import ToolbarAndroid from '@react-native-community/toolbar-android';
 
 const SinglePageScreen = () => {
+    const navigation = useNavigation();
     const MAX_PAGE_NO = 4;
     const componentMap = {
         1: Page1,
@@ -33,6 +36,10 @@ const SinglePageScreen = () => {
         }
     }
 
+    const openDrawer = () => {
+        navigation.toggleDrawer();
+    }
+
     return (
         <FlingGestureHandler
             direction={Directions.LEFT}
@@ -41,6 +48,12 @@ const SinglePageScreen = () => {
                 direction={Directions.RIGHT}
                 onHandlerStateChange={onLeftToRighttSwipe}>
                 <View style={styles.container}>
+                    <ToolbarAndroid
+                        title="This is a title"
+                        navIcon={require('../../assets/toolbar_icons/menu_resize.png')}
+                        onIconClicked={openDrawer}
+                        style={styles.toolbar}
+                    />
                     {renderPage()}
                 </View>
             </FlingGestureHandler>
@@ -51,6 +64,10 @@ const SinglePageScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    toolbar: {
+        height: 50,
+        backgroundColor: '#d3d3d3',
     }
 });
 
