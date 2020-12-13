@@ -11,6 +11,7 @@ import TestVideoScreen from './src/screens/TestVideoScreen';
 import ReusingVideoScreen from './src/screens/ReusingVideoScreen';
 import SoundTestScreen from './src/screens/SoundTestScreen';
 import SinglePageScreen from './src/screens/SinglePageScreen';
+import CustomDrawerComponent from './src/drawer/CustomDrawerComponent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -34,7 +35,8 @@ function StackNavigator() {
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      drawerContent={props => <CustomDrawerComponent {...props} />}>
       <Drawer.Screen name="Week 1" component={SinglePageScreen} />
       <Drawer.Screen name="Week 2" component={SinglePageScreen} />
       <Drawer.Screen name="Nested" component={StackNavigator} />
